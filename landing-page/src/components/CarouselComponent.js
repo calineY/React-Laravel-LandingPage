@@ -1,14 +1,16 @@
 import React from 'react'
 import {Carousel} from 'react-bootstrap'
+import Screenshotone from '../assets/Screenshotone.png'
+import Screenshottwo from '../assets/Screenshottwo.png'
+import Screenshotthree from '../assets/Screenshotthree.png'
 
 const CarouselComponent = () => {
   return (
-    <div>
+    <div style={{backgroundColor:'black'}}>
         <Carousel>
   <Carousel.Item>
     <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
+      src={Screenshotone}
       alt="First slide"
     />
     <Carousel.Caption>
@@ -18,8 +20,7 @@ const CarouselComponent = () => {
   </Carousel.Item>
   <Carousel.Item>
     <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Second slidebg=282c34"
+      src={Screenshottwo}
       alt="Second slide"
     />
 
@@ -30,8 +31,7 @@ const CarouselComponent = () => {
   </Carousel.Item>
   <Carousel.Item>
     <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Third slidebg=20232a"
+      src={Screenshotthree}
       alt="Third slide"
     />
 

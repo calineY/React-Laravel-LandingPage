@@ -10,6 +10,7 @@ const Register = () => {
     const [password_confirmation, setPasswordConfirmation]= useState('');
 
     let redirect = useNavigate();
+    
     async function submit(e) {
         e.preventDefault();
         

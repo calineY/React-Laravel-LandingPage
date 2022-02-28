@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutUs from '../components/AboutUs'
 import CarouselComponent from '../components/CarouselComponent'
+import Services from '../components/Services'
 
 
 
@@ -16,6 +17,9 @@ const Home = () => {
         <CarouselComponent/>
         <div className='aboutus'>
             <AboutUs/>
+        </div>
+        <div className='aboutus'>
+            <Services/>
         </div>
     </div>
   )

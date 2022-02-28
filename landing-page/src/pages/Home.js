@@ -14,8 +14,8 @@ const Home = () => {
             <h2 className='title1'>HireUp is the app where you can hire freelancers and find freelance jobs.</h2>
         </div>
         <div style={{marginBottom:'25px'}}>
-        <h2>Check it out</h2>
-        <span className='icon'>&#8681;</span>
+            <h2>Check it out</h2>
+            <span className='icon'>&#8681;</span>
         </div>
         <CarouselComponent/>
         <div className='aboutus'>

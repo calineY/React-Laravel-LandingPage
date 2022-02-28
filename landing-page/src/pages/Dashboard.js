@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import NavigationDashboard from '../components/NavigationDashboard';
 
 
 const Dashboard = () => {
@@ -9,7 +10,9 @@ const Dashboard = () => {
         return;
     }
     return (
-        <div>Dashboard
+        <div>
+            <NavigationDashboard/>
+        Dashboard
         <p>{localStorage.getItem("name")}</p>
         <p>{localStorage.getItem("email")}</p>
         </div>

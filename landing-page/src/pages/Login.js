@@ -21,8 +21,11 @@ const Login = () => {
     const url = "http://127.0.0.1:8000/api/auth/login";
     axios.post(url, user)
     .then(function (response) {
-         console.log(response);
-          localStorage.setItem("id", response.data.access_token);
+        console.log(response);
+        localStorage.setItem("id", response.data.access_token);
+        localStorage.setItem("name", response.data.user.name);
+        localStorage.setItem("email", response.data.user.email);
+        redirect("/dashboard");
       })
      .catch(function (error) {
          document.getElementById("message").innerHTML = "<p style='color: red'>User not found.</p>";

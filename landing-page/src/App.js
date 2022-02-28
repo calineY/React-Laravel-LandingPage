@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import ProtectedDashboard from './components/ProtectedDashboard';
 
 
 function App() {
@@ -16,12 +17,12 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
-            <Route path='/dashboard' element={<Dashboard/>}/>;
+            <Route element={<ProtectedDashboard/>}>
+              <Route path='/dashboard' element={<Dashboard/>}/>;
+            </Route>
           </Routes>
         </main>
       </BrowserRouter>
-      
-    
     </div>
   );
 }

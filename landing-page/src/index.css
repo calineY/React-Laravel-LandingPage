@@ -21,6 +21,7 @@ form {
 }
 .logo {
 	font-weight: bold;
+	font-size: 1.5em !important;
 }
 img {
 	width: 420px;

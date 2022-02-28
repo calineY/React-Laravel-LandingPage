@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ProtectedDashboard from './components/ProtectedDashboard';
+import ProtectedRoutes from './components/ProtectedRoutes';
 
 
 function App() {
@@ -14,9 +15,11 @@ function App() {
        <BrowserRouter>
         <main className="form-signin pad-top">
           <Routes>
-            <Route exact path='/' element={<Home/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/register' element={<Register/>}/>
+            <Route element={<ProtectedRoutes/>}>
+              <Route exact path='/' element={<Home/>}/>
+              <Route path='/login' element={<Login/>}/>
+              <Route path='/register' element={<Register/>}/>
+            </Route>
             <Route element={<ProtectedDashboard/>}>
               <Route path='/dashboard' element={<Dashboard/>}/>;
             </Route>

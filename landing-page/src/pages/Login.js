@@ -30,7 +30,11 @@ const Login = () => {
         redirect("/dashboard");
       })
      .catch(function (error) {
-         document.getElementById("message").innerHTML = "<p style='color: red'>User not found.</p>";
+        document.getElementById("message").innerHTML = "<p style='color: black'>...</p>";
+        setTimeout(()=>{
+          document.getElementById("message").innerHTML = "<p style='color: red'>User not found.</p>";
+        }, 100);
+        
      });
   }
 

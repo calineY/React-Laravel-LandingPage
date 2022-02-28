@@ -8,7 +8,7 @@ import Navigation from '../components/Navigation'
 
 const Home = () => {
   return (
-    <div>
+    <div className='containerFluid'>
         <Navigation/>
         <div className='homediv'>
             <h1 className='title'>Find someone that will get the job done.</h1>

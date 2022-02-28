@@ -6,7 +6,7 @@ import Screenshotthree from '../assets/Screenshotthree.png'
 
 const CarouselComponent = () => {
   return (
-    <div style={{backgroundColor:'black'}}>
+    <div style={{backgroundColor:'black',height:'550px'}}>
         <Carousel>
   <Carousel.Item>
     <img
@@ -15,7 +15,7 @@ const CarouselComponent = () => {
     />
     <Carousel.Caption>
       <h3>HireUp Mobile App</h3>
-      <p>You'll have your own profile, to work or hire.</p>
+      <p>You'll have your own profile, to hire or get hired.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -37,7 +37,7 @@ const CarouselComponent = () => {
 
     <Carousel.Caption>
       <h3>HireUp Mobile App</h3>
-      <p>Choose the freelancer that you wnat to work with.</p>
+      <p>Choose the freelancer that you want to work with.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

@@ -22,3 +22,8 @@ form {
 .logo {
 	font-weight: bold;
 }
+img {
+	width: 30%;
+	height: 30%;
+	padding-bottom: 150px;
+}

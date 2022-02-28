@@ -14,8 +14,8 @@ const CarouselComponent = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>HireUp Mobile App</h3>
+      <p>You'll have your own profile, to work or hire.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -25,8 +25,8 @@ const CarouselComponent = () => {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>HireUp Mobile App</h3>
+      <p>Find freelancers from multiple fields.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -36,8 +36,8 @@ const CarouselComponent = () => {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>HireUp Mobile App</h3>
+      <p>Choose the freelancer that you wnat to work with.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

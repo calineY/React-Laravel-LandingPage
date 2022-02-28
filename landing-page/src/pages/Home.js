@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutUs from '../components/AboutUs'
 import CarouselComponent from '../components/CarouselComponent'
+import ContactUs from '../components/ContactUs'
 import Services from '../components/Services'
 
 
@@ -23,6 +24,7 @@ const Home = () => {
         <div className='aboutus'>
             <Services/>
         </div>
+        <ContactUs/>
     </div>
   )
 }

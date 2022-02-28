@@ -3,12 +3,13 @@ import AboutUs from '../components/AboutUs'
 import CarouselComponent from '../components/CarouselComponent'
 import ContactUs from '../components/ContactUs'
 import Services from '../components/Services'
-
+import Navigation from '../components/Navigation'
 
 
 const Home = () => {
   return (
     <div>
+        <Navigation/>
         <div className='homediv'>
             <h1 className='title'>Find someone that will get the job done.</h1>
             <h2 className='title1'>HireUp is the app where you can hire freelancers and find freelance jobs.</h2>

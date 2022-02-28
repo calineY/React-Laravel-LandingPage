@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import Navigation from '../components/Navigation';
 
 const Login = () => {
   const [email, setEmail]= useState('');
@@ -34,26 +35,30 @@ const Login = () => {
   }
 
   return (
-    <form className='container mt-5' onSubmit={login}>
-      <h1 className="h3 mb-3 fw-normal">Login</h1>
-
-      <div className="form-floating">
-        <input type="email" className="form-control" placeholder="name@example.com" required
-        onChange={e=>setEmail(e.target.value)}/>  
-        {/* updating email on change */}
-        <label htmlFor="floatingInput">Email address</label>
-      </div>
-      <div className="form-floating">
-        <input type="password" className="form-control" placeholder="Password" required
-        onChange={e=>setPassword(e.target.value)}/>
-        {/* updating password on change */}
-        <label htmlFor="floatingPassword">Password</label>
-      </div>
-
-      <div id="message"></div>
-      <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
+    <div>
+      <Navigation/>
     
-    </form>
+      <form className='container mt-5' onSubmit={login}>
+        <h1 className="h3 mb-3 fw-normal">Login</h1>
+
+        <div className="form-floating">
+          <input type="email" className="form-control" placeholder="name@example.com" required
+          onChange={e=>setEmail(e.target.value)}/>  
+          {/* updating email on change */}
+          <label htmlFor="floatingInput">Email address</label>
+        </div>
+        <div className="form-floating">
+          <input type="password" className="form-control" placeholder="Password" required
+          onChange={e=>setPassword(e.target.value)}/>
+          {/* updating password on change */}
+          <label htmlFor="floatingPassword">Password</label>
+        </div>
+
+        <div id="message"></div>
+        <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
+      
+      </form>
+    </div>
   )
 }
 

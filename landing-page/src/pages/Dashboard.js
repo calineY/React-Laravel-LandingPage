@@ -19,7 +19,7 @@ const Dashboard = () => {
           password,
         };
         //console.log(user);
-        const url = "http://127.0.0.1:8000/api/auth/register";
+        const url = "http://127.0.0.1:8000/api/auth/";
         axios.post(url, user)
         .then(function (response) {
             if (response.data.message==="User successfully registered"){

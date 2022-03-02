@@ -9,13 +9,70 @@ const Dashboard = () => {
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
 
-    async function save(e) {
+    async function saveName(e) {
         e.preventDefault();
-        
+        if(name.length<2){
+            document.getElementById("message").innerHTML = "<p style='color: red'>Name should be at least 2 characters</p>";
+            return;
+        }
 
         const user= {
           name:name,
+        };
+        const url = "http://127.0.0.1:8000/api/auth/edit";
+        const token = localStorage.getItem('id');
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+          };
+
+        axios.post(url,user,config)
+        .then(function (response) {
+            if (response.data.message==="Profile updated"){
+                document.getElementById("message").innerHTML = "<p style='color: green'>Name updated</p>";
+                document.getElementById("namelabel").textContent=name;
+                document.getElementById("greeting").textContent=`Hello ${name}!`;
+                document.getElementById("nameinput").value='';
+            }
+         })
+         .catch(function (error) {
+             console.log(error)
+             document.getElementById("message").innerHTML = "<p style='color: red'>Name not updated</p>";
+         });
+      }
+
+      async function saveEmail(e) {
+        e.preventDefault();
+
+        const user= {
           email:email,
+        };
+        const url = "http://127.0.0.1:8000/api/auth/edit";
+        const token = localStorage.getItem('id');
+        const config = {
+            headers: { Authorization: `Bearer ${token}` }
+          };
+
+        axios.post(url,user,config)
+        .then(function (response) {
+            if (response.data.message==="Profile updated"){
+                document.getElementById("message").innerHTML = "<p style='color: green'>Email updated</p>";
+                document.getElementById("emaillabel").textContent=email;
+                document.getElementById("emailinput").value='';
+            }
+         })
+         .catch(function (error) {
+             console.log(error)
+             document.getElementById("message").innerHTML = "<p style='color: red'>Email not updated</p>";
+         });
+      }
+
+      async function savePassword(e) {
+        e.preventDefault();
+        if (password.length<6){
+            document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
+            return;
+        }
+        const user= {
           password:password,
         };
         const url = "http://127.0.0.1:8000/api/auth/edit";
@@ -27,43 +84,52 @@ const Dashboard = () => {
         axios.post(url,user,config)
         .then(function (response) {
             if (response.data.message==="Profile updated"){
-                document.getElementById("message").innerHTML = "<p style='color: green'>Profile updated</p>";
+                document.getElementById("message").innerHTML = "<p style='color: green'>Password updated</p>";
+                document.getElementById("passwordinput").value='';
+
             }
          })
          .catch(function (error) {
              console.log(error)
-             document.getElementById("message").innerHTML = "<p style='color: red'>Failed</p>";
+             document.getElementById("message").innerHTML = "<p style='color: red'>Password not updated</p>";
          });
       }
+
     return (
         <div>
             <NavigationDashboard/>
-        <h1>Hello {localStorage.getItem("name")}!</h1>
+        <h1 id="greeting">Hello {localStorage.getItem("name")}!</h1>
 
 
-        <form className='container mt-5' onSubmit={save}>
+        <form className='container mt-5 editform' onSubmit={saveName}>
             <h1 className="h3 mb-3 fw-normal">Edit your info below</h1>
-
             <div className="form-floating">
-                <input className="form-control" placeholder="Full name"
+                <input id="nameinput" className="form-control" placeholder="Full name"
                 onChange={e=>setName(e.target.value)} required/>
-                <label htmlFor="floatingInput">Name</label>
+                <label id="namelabel" htmlFor="floatingInput">{localStorage.getItem("name")}</label>
             </div>
+            <button className="w-100 btn btn-lg btn-success" type="submit">Edit name</button>
+        </form>
+
+        <form className='container mt-4 editform' onSubmit={saveEmail}>
             <div className="form-floating">
-                <input type="email" className="form-control" placeholder="name@example.com"
+                <input id="emailinput" type="email" className="form-control" placeholder="name@example.com"
                 onChange={e=>setEmail(e.target.value)} required/>
-            <label htmlFor="floatingInput">Email</label>
+            <label id="emaillabel" htmlFor="floatingInput">{localStorage.getItem("email")}</label>
             </div>
+            <button className="w-100 btn btn-lg btn-success" type="submit">Edit email</button>
+        </form>
+
+        <form className='container mt-4 editform' onSubmit={savePassword}>
                 <div className="form-floating">
-                <input type="password" className="form-control" placeholder="Password"
+                <input id="passwordinput" type="password" className="form-control" placeholder="Password"
                 onChange={e=>setPassword(e.target.value)} required/>
             <label htmlFor="floatingPassword">Password</label>
             </div>
-
+            <button className="w-100 btn btn-lg btn-success" type="submit">Edit password</button>
+        </form>
             <div id='message'></div>
             
-            <button className="w-100 btn btn-lg btn-success" type="submit">Save</button>
-        </form>
         </div>
         
   )

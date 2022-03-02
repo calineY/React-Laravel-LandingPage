@@ -19,7 +19,7 @@ const Dashboard = () => {
           password,
         };
         //console.log(user);
-        const url = "http://127.0.0.1:8000/api/auth/";
+        const url = "";
         axios.post(url, user)
         .then(function (response) {
             if (response.data.message==="User successfully registered"){
@@ -41,17 +41,17 @@ const Dashboard = () => {
             <h1 className="h3 mb-3 fw-normal">Edit your info below</h1>
 
             <div className="form-floating">
-                <input className="form-control" placeholder="Full name" required
+                <input className="form-control" placeholder="Full name"
                 onChange={e=>setName(e.target.value)}/>
                 <label htmlFor="floatingInput">{localStorage.getItem("name")}</label>
             </div>
             <div className="form-floating">
-                <input type="email" className="form-control" placeholder="name@example.com" required
+                <input type="email" className="form-control" placeholder="name@example.com"
                 onChange={e=>setEmail(e.target.value)}/>
             <label htmlFor="floatingInput">{localStorage.getItem("email")}</label>
             </div>
                 <div className="form-floating">
-                <input type="password" className="form-control" placeholder="Password" required
+                <input type="password" className="form-control" placeholder="Password"
                 onChange={e=>setPassword(e.target.value)}/>
             <label htmlFor="floatingPassword">Password</label>
             </div>

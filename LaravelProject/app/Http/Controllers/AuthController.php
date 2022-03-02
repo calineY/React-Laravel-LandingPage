@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -96,5 +97,38 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
+    }
+
+    // edit user profile
+    public function editProfile(Request $request){
+        $user = Auth::user();
+        if ( ! $request->name == '')
+        {
+            $user->name = $request->name;
+        }
+        if ( ! $request->email == '')
+        {
+            $user->email = $request->email;
+        }
+        if ( ! $request->password == '')
+        {
+            $user->password = bcrypt($request->password);
+        }
+        $validator = Validator::make($request->all(), [
+            'name' => 'string|between:2,100',
+            'email' => 'string|email|max:100|'.Rule::unique('users')->ignore($user->id),
+            'password' => 'string|min:6',
+        ]);
+        if ($validator->fails()){
+            
+            return response()->json($validator->errors()->toJson(), 400);
+
+        }
+        $user->save();
+
+        return response()->json([
+            'message' => 'Profile updated',
+            'user' => $user
+        ], 201);
     }
 }

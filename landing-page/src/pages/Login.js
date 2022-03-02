@@ -14,7 +14,10 @@ const Login = () => {
   async function login(e) {
     e.preventDefault();
     
-
+    if (password.length<6){
+      document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
+      return;
+    }
     const user= {
       email,
       password,

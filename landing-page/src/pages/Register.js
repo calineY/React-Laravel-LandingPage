@@ -14,7 +14,18 @@ const Register = () => {
 
     async function submit(e) {
         e.preventDefault();
-        
+        if(name.length<2){
+            document.getElementById("message").innerHTML = "<p style='color: red'>Name should be at least 2 characters</p>";
+            return;
+        }
+        if (password.length<6){
+            document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
+            return;
+        }
+        if (password!=password_confirmation){
+            document.getElementById("message").innerHTML = "<p style='color: red'>Password and Password Confirmation don't match</p>";
+            return;
+          }
 
         const user= {
           name,

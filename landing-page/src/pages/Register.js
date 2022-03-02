@@ -22,7 +22,7 @@ const Register = () => {
             document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
             return;
         }
-        if (password!=password_confirmation){
+        if (password!==password_confirmation){
             document.getElementById("message").innerHTML = "<p style='color: red'>Password and Password Confirmation don't match</p>";
             return;
           }

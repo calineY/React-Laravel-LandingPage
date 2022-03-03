@@ -15,7 +15,7 @@ const Home = () => {
             <h2 className='subtitle'>Hire freelancers and find freelance jobs.</h2>
             <h1 className='title'>Find someone who will get the job done.</h1>
         </div>
-        <div style={{marginBottom:'25px'}}>
+        <div className='findout'>
             <h2>Find out more</h2>
             <span className='icon'>&#8681;</span>
         </div>

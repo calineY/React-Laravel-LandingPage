@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/Navigation';
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   //useState to set variable to input value on change
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     let messagediv= document.getElementById("message");
     if (password.length<6){
-      document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
+      messagediv.innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
       return;
     }
     const user= {
@@ -68,6 +69,7 @@ const Login = () => {
         {/* div to display message */}
         <div id="message"></div>
       </form>
+      <p>Don't have an account?<Link to="/register" className="nav-link active">Sign Up</Link></p>
     </div>
   )
 }

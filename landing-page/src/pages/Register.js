@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/Navigation';
+import { Link } from 'react-router-dom'
 
 const Register = () => {
     //useState to set variable to input value on change
@@ -80,6 +81,7 @@ const Register = () => {
             <button className="w-100 btn btn-lg btn-success" type="submit">Sign Up</button>
             <div id='message'></div>
         </form>
+        <p>Already have an account?<Link to="/login" className="nav-link active">Login</Link></p>
    </div>
   )
 }

@@ -13,7 +13,7 @@ const Login = () => {
   // log in using axios
   async function login(e) {
     e.preventDefault();
-    
+    let messagediv= document.getElementById("message");
     if (password.length<6){
       document.getElementById("message").innerHTML = "<p style='color: red'>Password should be at least 6 characters</p>";
       return;
@@ -22,7 +22,7 @@ const Login = () => {
       email,
       password,
     };
-    //console.log(user);
+    messagediv.innerHTML = "<p style='color: black'>...</p>";
     const url = "http://127.0.0.1:8000/api/auth/login";
     axios.post(url, user)
     .then(function (response) {
@@ -33,9 +33,9 @@ const Login = () => {
         redirect("/dashboard");
       })
      .catch(function (error) {
-        document.getElementById("message").innerHTML = "<p style='color: black'>...</p>";
+        messagediv.innerHTML = "<p style='color: black'>...</p>";
         setTimeout(()=>{
-          document.getElementById("message").innerHTML = "<p style='color: red'>User not found.</p>";
+          messagediv.innerHTML = "<p style='color: red'>User not found.</p>";
         }, 100);
         
      });
@@ -61,9 +61,9 @@ const Login = () => {
           <label htmlFor="floatingPassword">Password</label>
         </div>
 
-        <div id="message"></div>
         <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
-      
+        
+        <div id="message"></div>
       </form>
     </div>
   )

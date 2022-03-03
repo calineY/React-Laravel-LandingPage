@@ -43,7 +43,7 @@ const Register = () => {
          })
          .catch(function (error) {
              console.log('Invalid credentials');
-             document.getElementById("message").innerHTML = "<p style='color: red'>Invalid credentials!</p>";
+             document.getElementById("message").innerHTML = "<p style='color: red'>Email already exists.</p>";
          });
       }
 

@@ -77,7 +77,7 @@ const Dashboard = () => {
          })
          .catch(function (error) {
              console.log(error)
-             messagediv.innerHTML = "<p style='color: red'>Email not updated</p>";
+             messagediv.innerHTML = "<p style='color: red'>Email already taken</p>";
          });
       }
 

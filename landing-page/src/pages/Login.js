@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from '../components/Navigation';
 
 const Login = () => {
+  //useState to set variable to input value on change
   const [email, setEmail]= useState('');
   const [password, setPassword]= useState('');
 
@@ -22,11 +23,12 @@ const Login = () => {
       email,
       password,
     };
+    //message will appear while loading
     messagediv.innerHTML = "<p style='color: black'>...</p>";
     const url = "http://127.0.0.1:8000/api/auth/login";
     axios.post(url, user)
     .then(function (response) {
-        console.log(response);
+        //save user info in local storage
         localStorage.setItem("id", response.data.access_token);
         localStorage.setItem("name", response.data.user.name);
         localStorage.setItem("email", response.data.user.email);
@@ -54,6 +56,7 @@ const Login = () => {
           {/* updating email on change */}
           <label htmlFor="floatingInput">Email address</label>
         </div>
+
         <div className="form-floating">
           <input type="password" className="form-control" placeholder="Password" required
           onChange={e=>setPassword(e.target.value)}/>
@@ -62,7 +65,7 @@ const Login = () => {
         </div>
 
         <button className="w-100 btn btn-lg btn-success" type="submit">Login</button>
-        
+        {/* div to display message */}
         <div id="message"></div>
       </form>
     </div>

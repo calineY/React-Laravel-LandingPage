@@ -5,15 +5,18 @@ import { useNavigate } from "react-router-dom";
 import Navigation from '../components/Navigation';
 
 const Register = () => {
+    //useState to set variable to input value on change
     const [name, setName]= useState('');
     const [email, setEmail]= useState('');
     const [password, setPassword]= useState('');
     const [password_confirmation, setPasswordConfirmation]= useState('');
 
+    //to redirect user to another page/route
     let redirect = useNavigate();
 
     async function submit(e) {
         e.preventDefault();
+        //validating credentials
         if(name.length<2){
             document.getElementById("message").innerHTML = "<p style='color: red'>Name should be at least 2 characters</p>";
             return;
@@ -33,7 +36,7 @@ const Register = () => {
           password,
           password_confirmation,
         };
-        //console.log(user);
+        //register api call using axios
         const url = "http://127.0.0.1:8000/api/auth/register";
         axios.post(url, user)
         .then(function (response) {
@@ -42,7 +45,7 @@ const Register = () => {
             }
          })
          .catch(function (error) {
-             console.log('Invalid credentials');
+             console.log(error);
              document.getElementById("message").innerHTML = "<p style='color: red'>Email already exists.</p>";
          });
       }
@@ -73,9 +76,9 @@ const Register = () => {
                 onChange={e=>setPasswordConfirmation(e.target.value)}/>
                 <label htmlFor="floatingPassword">Confirm password</label>
             </div>
-            <div id='message'></div>
             
             <button className="w-100 btn btn-lg btn-success" type="submit">Sign Up</button>
+            <div id='message'></div>
         </form>
    </div>
   )

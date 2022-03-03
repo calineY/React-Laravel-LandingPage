@@ -9,9 +9,12 @@ const ContactUs = () => {
   const [content, setContent]= useState('');
 
 
+  //on submit function calls api to send message
   async function sendMessage(e) {
     e.preventDefault();
+
     let messagediv= document.getElementById("message");
+    //validating data
     if (subject.length<2){
       messagediv.innerHTML ="<p style='color: red'>Subject is too short</p>";
       return;
@@ -34,7 +37,7 @@ const ContactUs = () => {
       e.target.reset();
       setTimeout(()=>{
         messagediv.innerHTML = "";
-      }, 700);
+      }, 1200);
       })
      .catch(function (error) {
        console.log(error);

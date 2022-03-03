@@ -7,6 +7,7 @@ const NavigationDashboard = () => {
     const token = localStorage.getItem('id');
     const url = "http://127.0.0.1:8000/api/auth/logout"
 
+    //logout api call and claring local storage
     async function logout(){
 
     const config = {

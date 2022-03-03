@@ -17,6 +17,7 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/register' element={<Register/>}/>
+            {/* dashboard is under protected route, only logged in users can see it */}
             <Route element={<ProtectedDashboard/>}>
               <Route path='/dashboard' element={<Dashboard/>}/>;
             </Route>
